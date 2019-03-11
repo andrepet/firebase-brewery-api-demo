@@ -1,6 +1,7 @@
 import firebase from "./firebase";
 import "firebase/database";
 
+
 const favorites = firebase.database().ref().child("favorites");
 
 export default function showFavoriteBreweries(){

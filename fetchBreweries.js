@@ -1,6 +1,7 @@
 import firebase from "./firebase";
 import "firebase/database";
 
+
 export default function fetchBreweries(){
     fetch("https://api.openbrewerydb.org/breweries")
     .then(response => response.json())
@@ -26,5 +27,6 @@ function renderDom(breweries){
 
 function saveBrewery(brewery){
     const favorites = firebase.database().ref().child("favorites");
-    favorites.push(brewery);
+    favorites.child(brewery.id).set(brewery);
 }
+
